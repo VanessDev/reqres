@@ -1,0 +1,309 @@
+/* ===== Reset léger ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+     background: linear-gradient(135deg, #6b05728c, #8d2de290);
+}
+
+/* Fond general  */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #6b05728d, #8d2de290);
+  display: flex;
+  justify-content: center;
+}
+/*Container global centré*/
+.app {
+  min-height: 100vh;
+  width: 100%;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 16px;
+}
+
+/* Page profil */
+.profile-page {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto; /* centrage forcé */
+  background: rgba(177, 33, 153, 0.137);
+  backdrop-filter: blur(16px);
+  border-radius: 24px;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.8);
+  padding: 32px 24px 28px;
+  color: #e5e7eb;
+}
+
+/*Header*/
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(34, 111, 219, 0.3);
+  padding-bottom: 16px;
+}
+
+.profile-title {
+  font-size: clamp(1.6rem, 2.4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: beige;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.profile-subtitle {
+  margin: 0;
+  font-size: 0.95rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: beige;
+}
+
+/*Liste utilisateurs*/
+.user-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+/*Carte utilisateur*/
+.user-card {
+  display: flex;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg,
+    rgba(93, 17, 61, 0.95),
+    rgba(175, 30, 165, 0.85)
+  );
+  border: 1px solid rgba(43, 92, 161, 0.25);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.8);
+  transition: 0.15s ease;
+}
+
+.user-card:hover {
+  transform: translateY(-3px) scale(1.01);
+  border-color: rgba(210, 121, 37, 0.9);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.9);
+}
+
+/*Avatar*/
+.user-avatar-wrapper {
+  flex-shrink: 0;
+}
+
+.user-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid rgba(96, 165, 250, 0.9);
+  box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.9);
+}
+
+.user-avatar--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, #d89c35, #fcc315);
+  color: #e5e7eb;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+/*Infos utilisateur*/
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.user-id {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #a5b4fc;
+}
+
+.user-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f9fafb;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-email {
+  font-size: 0.85rem;
+  color: #cbd5f5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*Loader*/
+.loader-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+  gap: 16px;
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 4px solid rgba(148, 163, 184, 0.3);
+  border-top-color: #f8f838;
+  animation: spin 0.9s linear infinite;
+}
+
+.loader-text {
+  font-size: 0.95rem;
+  color: #cbd5f5;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-box {
+  margin-top: 24px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(248, 113, 113, 0.55);
+  color: #fecaca;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  .profile-page {
+    padding: 20px 16px 18px;
+  }
+
+  .user-card {
+    padding: 12px;
+  }
+
+  .user-avatar {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/*Carte utilisateur - Page Détail*/
+.user-card--detail {
+  max-width: 420px;
+  margin: 0 auto 24px auto; /* centré */
+  padding: 22px;
+  flex-direction: column; /* avatar au-dessus */
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(
+    145deg,
+    rgba(30, 64, 175, 0.95),
+    rgba(15, 23, 42, 0.95)
+  );
+  border: 1px solid rgba(147, 197, 253, 0.4);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85);
+}
+
+.user-card--detail .user-avatar {
+  width: 110px;
+  height: 110px;
+  margin-bottom: 14px;
+  border-width: 3px;
+}
+
+.user-card--detail .user-info {
+  align-items: center;
+  gap: 8px;
+}
+
+.user-card--detail .user-id {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.user-card--detail .user-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.user-card--detail .user-email {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/*Bouton Retour*/
+.back-link {
+  display: inline-block;
+  margin: 0 auto;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #22c55e, #38bdf8);
+  color: #020617;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.4);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.back-link:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 14px 40px rgba(56, 189, 248, 0.45);
+}
+
+/*Bouton Profil utilisateur*/
+.user-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.user-link-btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #38bdf8, #f622d6);
+  color: #020617;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.user-link-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.45);
+}
