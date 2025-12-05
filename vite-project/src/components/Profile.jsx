@@ -5,36 +5,46 @@ import "../App.css";
 
 
 
+
+
 function Profile() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
 
-  useEffect(() => {
-    async function loadUsers() {
-      try {
-       const data = await loadData()
-        setUsers(data.data || data);
-      } catch (err) {
-        console.error(err);
-        setErrorMessage("Impossible de charger les utilisateurs.");
-      } finally {
+ useEffect(() => { 
+  async function loadUsers() {
+    try {
+      const data = await loadData();
+      setUsers(data.data || data);
+    } catch (err) {
+      console.error(err);
+      setErrorMessage("Impossible de charger les utilisateurs.");
+    } finally {
+      // On force le loader à rester visible au moins 800 ms
+      setTimeout(() => {
         setLoading(false);
-      }
+      }, 1000);
     }
+  }
 
-    loadUsers();
-  }, []);
+  loadUsers();
+}, []);
+
+
+
 
   // états de chargement / erreur
   if (loading) {
     return (
+      
       <div className="app">
         <main className="profile-page">
           <div className="loader-wrapper">
             <div className="loader" />
             <p className="loader-text">Chargement des utilisateurs…</p>
-          </div>
+      <span class="loader"></span>
+            </div>
         </main>
       </div>
     );

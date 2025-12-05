@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import Profile from "./components/Profile";
 import UserDetail from "./components/UserDetail";
+import './index.css';
 
 function App() {
   return (

@@ -62,7 +62,7 @@ function UserDetail() {
           <div className="error-box">
             <p>{errorMessage || "Utilisateur introuvable."}</p>
           </div>
-          <Link to="/" className="back-link">
+          <Link to="/" className="btn btn-primary">
             ← Retour à la liste
           </Link>
         </main>
@@ -80,16 +80,16 @@ function UserDetail() {
           </p>
         </header>
 
-        <article className="user-card user-card--detail">
-          <div className="user-avatar-wrapper">
+        <article className="card bg-base-100 w-96 shadow-sm">
+          <div className="px-10 pt-10r">
             {user.avatar ? (
               <img
                 src={user.avatar}
                 alt={user.first_name}
-                className="user-avatar"
+                className="rounded-xl"
               />
             ) : (
-              <div className="user-avatar user-avatar--placeholder">
+              <div className="card-body items-center text-cente">
                 {user.first_name?.[0] || user.last_name?.[0] || "?"}
               </div>
             )}
